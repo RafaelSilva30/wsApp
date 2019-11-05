@@ -6,12 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/', function(req, res, next) {
-    User.insertNew(req.body)
-        .then(data => res.jsonp(data))
-        .catch(error => {
-                console.log(`caught the error: ${error}`);
-            return res.status(500).json(error);
-        })
+router.post('/api/products', function(req, res, next) {
+    console.log(req.body)
+	res.jsonp(req.body)
 });
 module.exports = router;
